@@ -1,5 +1,5 @@
 # Mini-Tools
-Custom mini tools during Red Teaming engagements
+Custom mini tools during Red Teaming engagements.
 
 <p align="center">
   <img width="600" height="400" src="/Pictures/toys.jpg">
