@@ -1,4 +1,4 @@
-# This scripts searches for emails with first.last name format in a file.
+# This script searches for emails with first.last name format in a file.
 # Created with <3 by @nickvourd
 
 import re
