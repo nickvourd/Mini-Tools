@@ -2,7 +2,7 @@
 Custom mini tools during Red Teaming engagements
 
 <p align="center">
-  <img width="350" height="350" src="https://github.com/nickvourd/Mini-Tools/blob/main/Pictures/toys.png">
+  <img width="500" height="500" src="/Pictures/toys.png">
 </p>
 
 ## Overview
