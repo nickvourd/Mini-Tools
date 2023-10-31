@@ -1,6 +1,10 @@
 # Mini-Tools
 Custom mini tools during Red Teaming engagements
 
+<p align="center">
+  <img width="350" height="350" src="https://github.com/nickvourd/Mini-Tools/blob/main/Pictures/toys.png">
+</p>
+
 ## Overview
 
 The following table illustrates my custom mini tools used during various Red Teaming engagements:
