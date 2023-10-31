@@ -2,7 +2,7 @@
 Custom mini tools during Red Teaming engagements
 
 <p align="center">
-  <img width="500" height="500" src="/Pictures/toys.jpg">
+  <img width="800" height="500" src="/Pictures/toys.jpg">
 </p>
 
 ## Overview
