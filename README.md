@@ -3,6 +3,6 @@
 
 | Tool | Description |
 | ---- | ----------- |
-|  FirstLastNameEmailsFromList.py    |  This script searches for emails with first.last name format in a file.  |
-|  FirstLetterCapitalFromList.py    |  This script capitalizes the first letter of all words in a list.  |
+|  [FirstLastNameEmailsFromList.py](/FirstLastNameEmailsFromList.py)    |  This script searches for emails with first.last name format in a file.  |
+|  [FirstLetterCapitalFromList.py](/FirstLetterCapitalFromList.py)   |  This script capitalizes the first letter of all words in a list.  |
 |  Pinger.py  | This script is a custom ping tool to keep alive the connection |
