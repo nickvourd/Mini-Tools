@@ -3,6 +3,8 @@ Custom mini tools during Red Teaming engagements
 
 ## Overview
 
+The following table illustrates my custom mini tools used during various Red Teaming engagements:
+
 | Tool | Description |
 | ---- | ----------- |
 |  [FirstLastNameEmailsFromList.py](/FirstLastNameEmailsFromList.py)    |  This script searches for emails with first.last name format in a file.  |
