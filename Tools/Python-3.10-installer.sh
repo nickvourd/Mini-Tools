@@ -1,4 +1,4 @@
-# This script is a custom ping tool to keep alive the connection
+# This script facilitates the installation of Python 3.10 on Linux systems.
 # Created with <3 by @nickvourd
 # Dependencies: None
 
