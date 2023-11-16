@@ -2,7 +2,7 @@
 
 # Check if the user is root
 if [ "$(id -u)" -ne 0 ]; then
-    echo "You need root privileges to run this script. Exiting."
+    echo -e "[!] You need root privileges to run this script! Exiting...\n"
     exit 1
 fi
 
