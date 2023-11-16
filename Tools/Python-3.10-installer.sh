@@ -1,3 +1,7 @@
+# This script is a custom ping tool to keep alive the connection
+# Created with <3 by @nickvourd
+# Dependencies: None
+
 #!/usr/bin/env bash
 
 # Check if the user is root
