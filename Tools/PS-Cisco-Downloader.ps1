@@ -1,4 +1,4 @@
-$global:version = "1.0.0"
+$global:version = "1.1.0"
 
 function Get-AbsolutePath {
     [CmdletBinding()]
@@ -33,9 +33,21 @@ _________ .___  __________________  ________    _________ .____    .____________
 
 Write-Host $ascii`n
 
-Write-Host "[+] Download Cisco Anyconnect Client for Windows (MSI)`n"
-Invoke-WebRequest -Uri https://olemiss.edu/helpdesk/vpn/_files/anyconnect-win-4.10.00093-core-vpn-predeploy-k9.msi -OutFile anyconnect-win-4.10.00093-core-vpn-predeploy-k9.msi
+function Get-Windows{
+    Write-Host "[+] Download Cisco Anyconnect Client for Windows (MSI)`n"
+    Invoke-WebRequest -Uri https://olemiss.edu/helpdesk/vpn/_files/anyconnect-win-4.10.00093-core-vpn-predeploy-k9.msi -OutFile anyconnect-win-4.10.00093-core-vpn-predeploy-k9.msi
 
-$fileName = "anyconnect-win-4.10.00093-core-vpn-predeploy-k9.msi"
-$absolutePath = Get-AbsolutePath -FileName $fileName
-Write-Host "[+] Your file has been saved here: $absolutePath`n"
+    $fileName = "anyconnect-win-4.10.00093-core-vpn-predeploy-k9.msi"
+    $absolutePath = Get-AbsolutePath -FileName $fileName
+    Write-Host "[+] Your file has been saved here: $absolutePath`n"
+}
+
+function Get-Macos{
+    Write-Host "[+] Download Cisco Anyconnect Client for Macos (DMG)`n"
+    Invoke-WebRequest -Uri https://olemiss.edu/helpdesk/vpn/_files/anyconnect-macos-4.10.00093-predeploy-k9.dmg -OutFile anyconnect-macos-4.10.00093-predeploy-k9.dmg
+
+    $fileName = "anyconnect-macos-4.10.00093-predeploy-k9.dmg"
+    $absolutePath = Get-AbsolutePath -FileName $fileName
+    Write-Host "[+] Your file has been saved here: $absolutePath`n"
+}
+
