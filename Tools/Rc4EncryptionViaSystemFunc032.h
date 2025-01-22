@@ -1,5 +1,7 @@
 #pragma once
 
+// C++ Format
+
 // USTRING structure definition
 struct USTRING {
     DWORD Length;
