@@ -1,6 +1,4 @@
 #pragma once
-#include <Windows.h>
-#include <stdio.h>
 
 // USTRING structure definition
 struct USTRING {
