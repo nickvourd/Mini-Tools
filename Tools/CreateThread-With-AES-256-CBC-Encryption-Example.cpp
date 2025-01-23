@@ -12,7 +12,7 @@ unsigned char pIV[] = { 0xa3, 0xdd, 0x67, 0x75, 0x57, 0xe9, 0x5c, 0x5b, 0x24, 0x
 // main function
 int main() {
     DWORD oldProtect = NULL;
-	PVOID pPlaintext = NULL;
+    PVOID pPlaintext = NULL;
     DWORD dwPlainSize = NULL;
 
     // Find resource
