@@ -65,7 +65,7 @@ int main() {
         return 1;
     }
 
-	// Print info
+    // Print info
     printf("[+] Decrypted Shellcode size: %d\n", dwPlainSize);
 
 
