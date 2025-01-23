@@ -1,4 +1,5 @@
 #pragma once
+// Works with cpp format
 #include <bcrypt.h>
 #pragma comment(lib, "Bcrypt.lib")
 
