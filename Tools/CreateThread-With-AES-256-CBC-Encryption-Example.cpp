@@ -66,8 +66,7 @@ int main() {
     }
 
     // Print info
-    printf("[+] Decrypted Shellcode size: %d\n", dwPlainSize);
-
+    //printf("[+] Decrypted Shellcode size: %d\n", dwPlainSize);
 
     //  Allocates memory which will be used to store the payload
     PVOID pAllocatedAddress = VirtualAlloc(NULL, dwPlainSize , MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
