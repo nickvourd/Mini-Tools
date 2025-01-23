@@ -107,9 +107,9 @@ int main() {
     WaitForSingleObject(hThread, -1);
     CloseHandle(hThread);
 
-	// Free memory
-	HeapFree(GetProcessHeap(), 0, pTmpBuffer);
-	HeapFree(GetProcessHeap(), 0, pPlaintext);
+    // Free memory
+    HeapFree(GetProcessHeap(), 0, pTmpBuffer);
+    HeapFree(GetProcessHeap(), 0, pPlaintext);
     
     return 0;
 }
