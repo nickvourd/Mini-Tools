@@ -119,14 +119,15 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
 
 _EndOfFunction:
     // Cleanup resources
+    _EndOfFunction:
     if (hInternet)
-        InternetCloseHandle(hInternet);
+	    InternetCloseHandle(hInternet); // Closing the handle to the internet session
     if (hInternetFile)
-        InternetCloseHandle(hInternetFile);
+	    InternetCloseHandle(hInternetFile); // Closing the handle to the payload
+    if (hInternet)  
+        InternetSetOptionW(NULL, INTERNET_OPTION_SETTINGS_CHANGED, NULL, 0); // Check if the internet handle is valid (i.e., if the internet session was successfully opened)
     if (pTmpBytes)
-        HeapFree(hHeap, 0, pTmpBytes);
-    if (hRandomDelay)
-        CloseHandle(hRandomDelay);
+	    HeapFree(hHeap, 0, pTmpBytes); // Freeing the temporary buffer
 
     return bSTATE;
 }
