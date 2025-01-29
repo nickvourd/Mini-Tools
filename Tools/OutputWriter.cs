@@ -1,6 +1,6 @@
 // This file it's part of 'SharpHound' project.
 // Original code: https://github.com/SpecterOps/SharpHound/blob/2.X/src/Runtime/OutputWriter.cs
-// This code bypass basic detections like this: https://research.splunk.com/endpoint/42b4b438-beed-11eb-ba1d-acde48001122/
+// This code bypasses basic detections like this: https://research.splunk.com/endpoint/42b4b438-beed-11eb-ba1d-acde48001122/
 
 using System;
 using System.Collections.Generic;
