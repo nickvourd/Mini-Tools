@@ -43,8 +43,6 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-// chrome.ico is the name of the icon from the previous step
-IDI_ICON1 ICON "chrome.ico"
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
@@ -61,6 +59,8 @@ IDI_ICON1 ICON "chrome.ico"
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 
+// chrome.ico is the name of the icon from the previous step
+IDI_ICON1 ICON "chrome.ico"
 1 VERSIONINFO
 FILEVERSION 112, 0, 5615, 88 // File version separated by commas
 PRODUCTVERSION 1, 0, 0, 0
