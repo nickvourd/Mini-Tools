@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 
 #define SEED 5
 
@@ -79,7 +80,7 @@ FARPROC GetProcAddressH(HMODULE hModule, DWORD dwApiNameHash) {
     return NULL;
 }
 
-// VirtualAlloc function prototype
+// Function pointer typedefs
 typedef LPVOID(WINAPI* fnVirtualAlloc)(
     LPVOID lpAddress,
     SIZE_T dwSize,
@@ -87,7 +88,6 @@ typedef LPVOID(WINAPI* fnVirtualAlloc)(
     DWORD  flProtect
     );
 
-// VirtualProtect function prototype
 typedef BOOL(WINAPI* fnVirtualProtect)(
     LPVOID lpAddress,
     SIZE_T dwSize,
@@ -95,7 +95,6 @@ typedef BOOL(WINAPI* fnVirtualProtect)(
     PDWORD lpflOldProtect
     );
 
-// CreateThread function prototype
 typedef HANDLE(WINAPI* fnCreateThread)(
     LPSECURITY_ATTRIBUTES lpThreadAttributes,
     SIZE_T dwStackSize,
@@ -105,32 +104,26 @@ typedef HANDLE(WINAPI* fnCreateThread)(
     LPDWORD lpThreadId
     );
 
-// WaitForSingleObject function prototype
 typedef DWORD(WINAPI* fnWaitForSingleObject)(
     HANDLE hHandle,
     DWORD dwMilliseconds
     );
 
-// CloseHandle function prototype
 typedef BOOL(WINAPI* fnCloseHandle)(
     HANDLE hObject
     );
 
-// GetLastError function prototype
 typedef DWORD(WINAPI* fnGetLastError)(void);
 
-// LoadLibraryA function prototype
 typedef HMODULE(WINAPI* fnLoadLibraryA)(
     LPCSTR lpLibFileName
     );
 
-// GetProcAddress function prototype
 typedef FARPROC(WINAPI* fnGetProcAddress)(
     HMODULE hModule,
     LPCSTR lpProcName
     );
 
-// FreeLibrary function prototype
 typedef BOOL(WINAPI* fnFreeLibrary)(
     HMODULE hLibModule
     );
