@@ -18,4 +18,4 @@ The following table illustrates my custom mini tools used during various Red Tea
 |  [PS-Cisco-Downloader.ps1](/Tools/PS-Cisco-Downloader.ps1)  | This script is a custom PowerShell Downloader script of Cisco VPN Client. |
 |  [SampleDLL.cpp](/Tools/SampleDLL.cpp) | Sample dll for dll sideloading hunting. |
 |  [Pentest.yml](/Tools/pentest.yml) | Tmux yaml template for penetration tests |
-|  [Redteam.yml](/Tools/redteam.yml | Tmux yaml template for red teaming |
+|  [Redteam.yml](/Tools/redteam.yml) | Tmux yaml template for red teaming |
