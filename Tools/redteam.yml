@@ -1,0 +1,37 @@
+start_directory: /root
+session_name: RedTeam
+windows:
+  - window_name: Network
+    layout: tiled
+    panes:
+      - top
+      - watch -n 2 netstat -pantu
+      - ifconfig
+
+  - window_name: Main
+    shell_command_before: cd ~/
+    layout: tiled
+    panes:
+      - null
+      - null
+      - null
+      - null
+  
+  - window_name: C2
+    shell_command_before: cd ~/
+    layout: tiled
+    panes:
+      - null
+      - null
+
+  - window_name: Tunneling
+    shell_command_before: cd ~/
+    layout: tiled
+    panes:
+      - null
+
+  - window_name: Web
+    layout: tiled
+    panes: 
+      - firefox
+      - null
