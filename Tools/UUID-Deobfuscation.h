@@ -4,6 +4,12 @@
 // Calculate size based on your formula
 // unsigned __int64 allocatedsize = (unsigned __int64)sizeof(UuidArray) * 2;
 
+typedef RPC_STATUS (WINAPI* fnUuidFromStringA)(
+	RPC_CSTR	StringUuid,
+	UUID*		Uuid
+); 
+
+
 BOOL UuidDeobfuscation(IN CHAR* UuidArray[], IN SIZE_T NmbrOfElements, OUT PBYTE* ppDAddress, OUT SIZE_T* pDSize) {
 
 	PBYTE		pBuffer = NULL,
