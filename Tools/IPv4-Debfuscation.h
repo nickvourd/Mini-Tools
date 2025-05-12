@@ -1,6 +1,8 @@
 #pragma once
 
 // #define NumberOfElements <number>
+// Calculate size based on your formula
+// unsigned __int64 allocatedsize = (unsigned __int64)sizeof(Ipv4Array) * 2;
 
 
 typedef NTSTATUS (NTAPI* fnRtlIpv4StringToAddressA)(
