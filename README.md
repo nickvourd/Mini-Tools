@@ -10,7 +10,7 @@ Custom mini tools during Red Teaming engagements.
 The following table illustrates my custom mini tools used during various Red Teaming engagements:
 
 | Tool | Description |
-| ---- | ----------- |
+| :----: | :-----------: |
 |  [FirstLastNameEmailsFromList.py](/Tools/FirstLastNameEmailsFromList.py)    |  This script searches for emails with first.last name format in a file.  |
 |  [FirstLetterCapitalFromList.py](/Tools/FirstLetterCapitalFromList.py)   |  This script capitalizes the first letter of all words in a list.  |
 |  [Pinger.py](/Tools/Pinger.py)  | This script is a custom ping tool to keep alive the connection. |
@@ -20,3 +20,4 @@ The following table illustrates my custom mini tools used during various Red Tea
 |  [Pentest.yml](/Tools/pentest.yml) | Tmux yaml template for penetration tests |
 |  [Redteam.yml](/Tools/redteam.yml) | Tmux yaml template for red teaming |
 | [filetime-converter.py](/Tools/filetime-converter.py) | Python file time converter | 
+| [Install-Azure-Modules.ps1](/Tools/Install-Azure-Modules.ps1) | Powershell Installation for Azure Modules |
