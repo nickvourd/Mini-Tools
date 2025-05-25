@@ -21,3 +21,4 @@ The following table illustrates my custom mini tools used during various Red Tea
 |  [Redteam.yml](/Tools/redteam.yml) | Tmux yaml template for red teaming |
 | [filetime-converter.py](/Tools/filetime-converter.py) | Python file time converter | 
 | [Install-Azure-Modules.ps1](/Tools/Install-Azure-Modules.ps1) | Powershell Installation for Azure Modules |
+| [Microsoft.ActiveDirectory.Management.dll](/Tools/Microsoft.ActiveDirectory.Management.dll) | Microsoft Active Directory Module dll for ARM |
