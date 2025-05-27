@@ -17,8 +17,9 @@ The following table illustrates my custom mini tools used during various Red Tea
 |  [Python-3.10-installer.sh](/Tools/Python-3.10-installer.sh) | This script facilitates the installation of Python 3.10 on Linux systems. |
 |  [PS-Cisco-Downloader.ps1](/Tools/PS-Cisco-Downloader.ps1)  | This script is a custom PowerShell Downloader script of Cisco VPN Client. |
 |  [SampleDLL.cpp](/Tools/SampleDLL.cpp) | Sample dll for dll sideloading hunting. |
-|  [Pentest.yml](/Tools/pentest.yml) | Tmux yaml template for penetration tests |
-|  [Redteam.yml](/Tools/redteam.yml) | Tmux yaml template for red teaming |
-| [filetime-converter.py](/Tools/filetime-converter.py) | Python file time converter | 
-| [Install-Azure-Modules.ps1](/Tools/Install-Azure-Modules.ps1) | Powershell Installation for Azure Modules |
-| [Microsoft.ActiveDirectory.Management.dll](/Tools/Microsoft.ActiveDirectory.Management.dll) | Microsoft Active Directory Module dll for ARM |
+|  [Pentest.yml](/Tools/pentest.yml) | Tmux yaml template for penetration tests. |
+|  [Redteam.yml](/Tools/redteam.yml) | Tmux yaml template for red teaming. |
+| [filetime-converter.py](/Tools/filetime-converter.py) | Python file time converter. | 
+| [Install-Azure-Modules.ps1](/Tools/Install-Azure-Modules.ps1) | Powershell Installation for Azure Modules. |
+| [Microsoft.ActiveDirectory.Management.dll](/Tools/Microsoft.ActiveDirectory.Management.dll) | Microsoft Active Directory Module dll for ARM. |
+| [Log-Timestamps.ps1](/Tools/Log-Timestamps.ps1) | Log Timestamps on PowerShell Execution and Every Command. |
