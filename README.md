@@ -23,3 +23,4 @@ The following table illustrates my custom mini tools used during various Red Tea
 | [Install-Azure-Modules.ps1](/Tools/Install-Azure-Modules.ps1) | Powershell Installation for Azure Modules. |
 | [Microsoft.ActiveDirectory.Management.dll](/Tools/Microsoft.ActiveDirectory.Management.dll) | Microsoft Active Directory Module dll for ARM. |
 | [Log-Timestamps.ps1](/Tools/Log-Timestamps.ps1) | Log Timestamps on PowerShell Execution and Every Command. |
+| [Split-File-Parts.ps1](https://github.com/nickvourd/Mini-Tools/blob/main/Tools/Split-File-Parts.ps1) | Split a large file to parts for data exfiltration |
