@@ -1,3 +1,4 @@
+#Import-Module PowerView.ps1
 Get-DomainComputer -Ping |
     Where-Object {
         $_.OperatingSystem -notmatch "Windows 10" -and
