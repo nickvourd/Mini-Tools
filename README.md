@@ -26,3 +26,4 @@ The following table illustrates my custom mini tools used during various Red Tea
 | [Split-File-Parts.ps1](/Tools/Split-File-Parts.ps1) | Split a large file to parts for data exfiltration. |
 | [resolve-ips.sh](/Tools/resolve-ips.sh) | Resolve IPs Bash Script. |
 | [Get-ObsoleteADComputers.ps1](/Tools/Get-ObsoleteADComputers.ps1) | Get Live Obsolete AD Computers. |
+| [CreateCert.ps1](/Tools/CreateCert.ps1) | Create Self Sign Certification. |
