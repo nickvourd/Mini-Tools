@@ -1,0 +1,1 @@
+for i in $(seq 1 254); do { echo "[$(date '+%Y-%m-%d %H:%M:%S')] Ping 192.168.$i.0/24"; fping -asg 192.168.$i.0/24 2>/dev/null | while read ip; do echo "[$(date '+%Y-%m-%d %H:%M:%S')] Found $ip"; done; } | tee -a ping_192_168.txt; done
